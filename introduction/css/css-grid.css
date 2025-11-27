@@ -1,0 +1,32 @@
+   body {
+       background-color: lightgreen;
+       font-family: Arial, sans-serif;
+   }
+   h1 {
+       color: darkgreen;
+       margin-left: 40px;
+      text-align: center;  }
+p {
+    text-align: center;
+}
+
+img {
+    display: block; 
+    margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: 80px 200px;  
+  background-color: dodgerblue;
+  padding: 5px;
+  gap: 5px;  
+}
+.container div {
+  background-color: #f1f1f1;
+  color:#000;
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
