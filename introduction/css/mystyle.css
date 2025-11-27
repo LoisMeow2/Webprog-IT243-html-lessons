@@ -1,11 +1,33 @@
-1   body {
-2       background-color: lightblue;
-3       font-family: Arial, sans-serif;
-4   }
-5   h1 {
-6       color: navy;
-7       margin-left: 20px;
-8       text-align: center;
-9   }
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/mystyle.css?version=0.1">
+<title>Page Title</title>
+</head>
+<body>
 
+<h1>Personal Profile Web page Lois Vera Cruz</h1>
 
+<p>
+About Me<br>
+( Do not include birthdate / age / contact information)<br>
+
+Education / Achievements<br>
+Course BSIT APC <br>
+
+IT Experience<br>
+Programmer 2024 <br>
+
+Hobbies & Interest<br>
+
+Goals In Life / Dream<br>
+I draw, play competitive games, tekken, pokemon, splatoon, overwatch, valorant <br>
+
+my dream in life is just to keep drawing and make more stories to life<br>
+
+Picture Gallery<br>
+</p>
+<img src="https://www.pokepedia.fr/images/a/a9/Sprite_0121_M%C3%A9ga_LPZA.png" alt="starmie" width="500" height="600">
+
+</head>
+<body>
