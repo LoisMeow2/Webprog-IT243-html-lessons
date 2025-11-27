@@ -27,28 +27,18 @@ img {
   gap: 5px; 
 }
 
-/* Existing Grid Item Styling */
 .container div {
   background-color: #d1df92;
-  color:#000;
-  padding: 10px;
+  color:#063b2a;
+  padding: 20px;
   font-size: 30px;
   text-align: center;
 }
 
 .grid-item-content {
-  /* 1. Enable Flexbox */
   display: flex;
-  
-  /* 2. Choose the direction (e.g., vertically stacked) */
   flex-direction: column; 
-  
-  /* 3. Vertically center the content */
   justify-content: center; 
-  
-  /* 4. Horizontally center the content */
   align-items: center; 
-  
-  /* Ensure it takes up all available space in the grid cell */
   height: 100%;
 }
