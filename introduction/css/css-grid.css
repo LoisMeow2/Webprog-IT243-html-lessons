@@ -3,7 +3,7 @@
       height: 100vh;
       /* Combine background image with gradient */
       background: linear-gradient(rgba(57, 124, 74, 0.5), rgba(199, 176, 101, 0.5)), 
-                  url('https://tcgplayer-cdn.tcgplayer.com/product/497598_in_1000x1000.jpg') no-repeat center center / cover;
+                  url('https://i0.wp.com/sourcegaming.info/wp-content/uploads/2023/02/Tropius-Pokemon-Trading-Card-Game-Kagemaru-Himeno-art.png?resize=500%2C311') no-repeat center center / cover;
       font-family: Arial, sans-serif;
     }
  
@@ -13,7 +13,7 @@
        
    }
    h1 {
-       color: darkgreen;
+       color: rgb(255, 255, 255);
        margin-left: 40px;
       text-align: center;  }
 p {
