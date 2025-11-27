@@ -1,5 +1,5 @@
    body {
-       background-color: rgb(230, 195, 130);
+       background-color: rgb(192, 199, 130);
        font-family: Arial, sans-serif;
    }
    h1 {
@@ -18,7 +18,7 @@ img {
 .container {
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-template-rows: 80px 200px;  
+  grid-template-rows: auto auto auto;  
   background-color: rgb(8, 119, 32);
   padding: 5px;
   gap: 5px;  
