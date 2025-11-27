@@ -1,6 +1,16 @@
-   body {
+    body {
+      margin: 0;
+      height: 100vh;
+      /* Combine background image with gradient */
+      background: linear-gradient(rgba(57, 124, 74, 0.5), rgba(199, 176, 101, 0.5)), 
+                  url('https://tcgplayer-cdn.tcgplayer.com/product/497598_in_1000x1000.jpg') no-repeat center center / cover;
+      font-family: Arial, sans-serif;
+    }
+ 
+ 
+ body {
        background-color: rgb(192, 199, 130);
-       font-family: Arial, sans-serif;
+       
    }
    h1 {
        color: darkgreen;
@@ -30,3 +40,4 @@ img {
   font-size: 30px;
   text-align: center;
 }
+
