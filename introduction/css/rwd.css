@@ -94,6 +94,33 @@ section h2 {
   border-bottom: 2px solid #4CAF50;
   padding-bottom: 10px;
   font-weight: 500;
+  position: relative;
+}
+
+.decal {
+  position: absolute;
+  pointer-events: auto;
+  opacity: 0.7;
+  cursor: grab;
+}
+
+.decal.dragging {
+  opacity: 0.5;
+  cursor: grabbing;
+}
+
+.star {
+  width: 30px;
+  height: 30px;
+  bottom: 10px;
+  right: 10px;
+}
+
+.taiyaki {
+  width: 50px;
+  height: 50px;
+  top: 10px;
+  right: -60px;
 }
 
 .gallery-grid {
@@ -152,6 +179,10 @@ section h2 {
 
   section:hover {
     transform: translateY(-2px);
+  }
+
+  .decal {
+    display: none;
   }
 
   .gallery-grid {
