@@ -47,15 +47,6 @@
 
     <picture-gallery :images="galleryImages"></picture-gallery>
 
-    <guestbook-form v-on:add-comment="addComment"></guestbook-form>
-
-    <div class="comments">
-      <h2>Guestbook</h2>
-      <div v-for="comment in comments" :key="comment.id" class="comment">
-        <strong>{{ comment.name }}</strong> ({{ comment.email }}): {{ comment.message }}
-      </div>
-    </div>
-
     <footer class="site-footer">
       <p>&copy; 2026 Lois Vera Cruz. All rights reserved.</p>
     </footer>
@@ -73,40 +64,6 @@
           </div>
         </section>
       `
-    });
-
-    Vue.component('guestbook-form', {
-      data() {
-        return {
-          name: '',
-          email: '',
-          message: ''
-        }
-      },
-      template: `
-        <section class="guestbook">
-          <h2>Leave a Comment</h2>
-          <form @submit.prevent="submitComment">
-            <input v-model="name" type="text" placeholder="Your Name" required>
-            <input v-model="email" type="email" placeholder="Your Email" required>
-            <textarea v-model="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Submit</button>
-          </form>
-        </section>
-      `,
-      methods: {
-        submitComment() {
-          this.$emit('add-comment', {
-            id: Date.now(),
-            name: this.name,
-            email: this.email,
-            message: this.message
-          });
-          this.name = '';
-          this.email = '';
-          this.message = '';
-        }
-      }
     });
 
     new Vue({
@@ -128,13 +85,7 @@
           { id: 4, src: 'https://static.wikia.nocookie.net/pokemon/images/7/7c/Tropius_anime.png', alt: 'Tropius Anime' },
           { id: 5, src: 'https://www.serebii.net/scarletviolet/pokemon/357.png', alt: 'Tropius Scarlet Violet' },
           { id: 6, src: 'https://archives.bulbagarden.net/media/upload/thumb/7/7c/357Tropius.png/1200px-357Tropius.png', alt: 'Tropius Sprite' }
-        ],
-        comments: []
-      },
-      methods: {
-        addComment(comment) {
-          this.comments.push(comment);
-        }
+        ]
       }
     });
   </script>

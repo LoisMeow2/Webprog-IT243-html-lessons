@@ -1,7 +1,10 @@
     body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #f9f9f9;
+  background-image: url('https://pbs.twimg.com/media/Gl_IVL3WsAAA5K2?format=png&name=4096x4096');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
   color: #333;
   line-height: 1.6;
   transition: background-color 0.3s ease;
@@ -13,9 +16,27 @@
   background: linear-gradient(135deg, #4CAF50, #66BB6A);
   color: white;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('https://i0.wp.com/sourcegaming.info/wp-content/uploads/2023/02/Tropius-Pokemon-Trading-Card-Game-Kagemaru-Himeno-art.png?resize=500%2C311');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  z-index: 1;
 }
 
 .header-content {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,10 +77,15 @@ section {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform: rotate(-1deg);
+}
+
+section:nth-child(odd) {
+  transform: rotate(1deg);
 }
 
 section:hover {
-  transform: translateY(-2px);
+  transform: rotate(0deg) translateY(-2px);
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
@@ -89,73 +115,13 @@ section h2 {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.guestbook form {
-  display: flex;
-  flex-direction: column;
-}
-
-.guestbook input,
-.guestbook textarea {
-  margin-bottom: 10px;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-family: 'Roboto', sans-serif;
-  transition: border-color 0.3s ease;
-}
-
-.guestbook input:focus,
-.guestbook textarea:focus {
-  outline: none;
-  border-color: #4CAF50;
-  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-}
-
-.guestbook textarea {
-  resize: vertical;
-  min-height: 100px;
-}
-
-.guestbook button {
-  padding: 12px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.guestbook button:hover {
-  background-color: #45a049;
-  transform: translateY(-1px);
-}
-
-.guestbook button:active {
-  transform: translateY(0);
-}
-
-.comments .comment {
-  margin-bottom: 15px;
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 6px;
-  border-left: 4px solid #4CAF50;
-  transition: background-color 0.3s ease;
-}
-
-.comments .comment:hover {
-  background-color: #e9ecef;
-}
-
 .site-footer {
   text-align: center;
   padding: 20px;
-  background-color: #333;
-  color: #ccc;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
   margin-top: 40px;
+  backdrop-filter: blur(5px);
 }
 
 .site-footer p {
@@ -181,6 +147,11 @@ section h2 {
   section {
     margin: 10px;
     padding: 15px;
+    transform: none;
+  }
+
+  section:hover {
+    transform: translateY(-2px);
   }
 
   .gallery-grid {
