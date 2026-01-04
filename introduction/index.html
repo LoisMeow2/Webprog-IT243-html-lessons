@@ -1,74 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal profile of Lois Vera Cruz - Creative Soul, Tech Enthusiast, Pokemon Lover">
   <link rel="stylesheet" href="css/rwd.css">
-  <title>Page Title</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <title>Lois Vera Cruz - Personal Profile</title>
 </head>
 <body>
+  <div id="app">
+    <header class="profile-header">
+      <div class="header-content">
+        <img src="https://www.serebii.net/rumblerush/pokemon/357.png" alt="Profile Picture" class="profile-pic">
+        <div class="header-text">
+          <h1>{{ profile.name }}</h1>
+          <p>{{ profile.tagline }}</p>
+        </div>
+      </div>
+    </header>
 
-<h1>Personalized Profile Web page Lois Vera Cruz</h1>
+    <section class="about">
+      <h2>About Me</h2>
+      <p>{{ profile.about }}</p>
+    </section>
 
-<p></p>
+    <section class="education">
+      <h2>Education & Achievements</h2>
+      <p>{{ profile.education }}</p>
+    </section>
 
-<!-- THIS is your grid container -->
-<div class="container">
-  <div>About Me!</div>
-  <div>Education / Achievements<br> Course BSIT APC <br> 
-    <img src="https://www.serebii.net/rumblerush/pokemon/357.png" width="50" height="50">
+    <section class="experience">
+      <h2>IT Experience</h2>
+      <p>{{ profile.experience }}</p>
+    </section>
+
+    <section class="hobbies">
+      <h2>Hobbies & Interests</h2>
+      <p>{{ profile.hobbies }}</p>
+    </section>
+
+    <section class="goals">
+      <h2>Goals in Life</h2>
+      <p>{{ profile.goals }}</p>
+    </section>
+
+    <picture-gallery :images="galleryImages"></picture-gallery>
+
+    <guestbook-form v-on:add-comment="addComment"></guestbook-form>
+
+    <div class="comments">
+      <h2>Guestbook</h2>
+      <div v-for="comment in comments" :key="comment.id" class="comment">
+        <strong>{{ comment.name }}</strong> ({{ comment.email }}): {{ comment.message }}
+      </div>
+    </div>
   </div>
 
-  <div>IT Experience<br> Programmer 2024 <br> 
-    <img src="https://www.serebii.net/rumblerush/pokemon/357.png" width="50" height="50">
-  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script>
+    Vue.component('picture-gallery', {
+      props: ['images'],
+      template: `
+        <section class="gallery">
+          <h2>Picture Gallery</h2>
+          <div class="gallery-grid">
+            <img v-for="image in images" :key="image.id" :src="image.src" :alt="image.alt" class="gallery-image">
+          </div>
+        </section>
+      `
+    });
 
-  <div>Hobbies & Interest<br> I draw, play competitive games, tekken, pokemon, splatoon, overwatch, valorant <br> 
-    <img src="https://www.serebii.net/rumblerush/pokemon/357.png" width="50" height="50">
-  </div>
+    Vue.component('guestbook-form', {
+      data() {
+        return {
+          name: '',
+          email: '',
+          message: ''
+        }
+      },
+      template: `
+        <section class="guestbook">
+          <h2>Leave a Comment</h2>
+          <form @submit.prevent="submitComment">
+            <input v-model="name" type="text" placeholder="Your Name" required>
+            <input v-model="email" type="email" placeholder="Your Email" required>
+            <textarea v-model="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+      `,
+      methods: {
+        submitComment() {
+          this.$emit('add-comment', {
+            id: Date.now(),
+            name: this.name,
+            email: this.email,
+            message: this.message
+          });
+          this.name = '';
+          this.email = '';
+          this.message = '';
+        }
+      }
+    });
 
-  <div>Goals In Life / Dream<br> my dream in life is just to keep drawing and make more stories to life<br> 
-    <img src="https://www.serebii.net/rumblerush/pokemon/357.png" width="50" height="50">
-  </div>
-
-  <div>Picture Gallery<br> 
-    <img src="https://www.serebii.net/rumblerush/pokemon/357.png" width="100" height="100">
-  </div>  
-</div>
-
-<div class="grid-container">
-
-
-
-
-<div class="header"><h1>Tropius</h1></div>
-
-<div class="menu">
-  <ul>
-    <li>The Style</li>
-    <li>The Cost</li>
-    <li>The Grunge</li>
-    <li>The Species</li>
-  </ul>
-</div>
-
-<div class="content">
-  <h2>Meow</h2>
-  <p>There is a healing</p>
-  <p>Set the Tone, let it breathe</p>
-  <p>Tropius</p>
-  <img src="https://www.serebii.net/rumblerush/pokemon/357.png" width="460" height="345">
-</div>  
-
-<div class="facts">
-  <h2>Facts:</h2>
-  <ul>
-    <li>I love Earthy tones</li>
-    <li>Big men are cool</li>
-  </ul>
-</div>
-
-<div class="footer"><p>Resize the browser window to see the responsive effect.</p></div>
-  
-</div>
-
+    new Vue({
+      el: '#app',
+      data: {
+        profile: {
+          name: 'Lois Vera Cruz',
+          tagline: 'Creative Soul | Tech Enthusiast | Pokemon Lover',
+          about: 'Welcome to my personal space! I\'m passionate about art, technology, and all things creative.',
+          education: 'BSIT at APC (Assumption College of Davao)',
+          experience: 'Programmer (2024)',
+          hobbies: 'Drawing, playing competitive games like Tekken, Pokemon, Splatoon, Overwatch, Valorant',
+          goals: 'To keep drawing and bring more stories to life'
+        },
+        galleryImages: [
+          { id: 1, src: 'https://www.serebii.net/rumblerush/pokemon/357.png', alt: 'Tropius' },
+          { id: 2, src: 'https://i0.wp.com/sourcegaming.info/wp-content/uploads/2023/02/Tropius-Pokemon-Trading-Card-Game-Kagemaru-Himeno-art.png?resize=500%2C311', alt: 'Tropius Art' },
+          // Add more images as needed
+        ],
+        comments: []
+      },
+      methods: {
+        addComment(comment) {
+          this.comments.push(comment);
+        }
+      }
+    });
+  </script>
 </body>
 </html>

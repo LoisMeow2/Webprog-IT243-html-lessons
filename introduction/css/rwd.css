@@ -1,152 +1,99 @@
     body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(rgba(57, 124, 74, 0.5), rgba(199, 176, 101, 0.5)), 
-                  url('https://i0.wp.com/sourcegaming.info/wp-content/uploads/2023/02/Tropius-Pokemon-Trading-Card-Game-Kagemaru-Himeno-art.png?resize=500%2C311') no-repeat center center / cover;
-      font-family: Arial, sans-serif;
-    }
-   h1 {
-       color: rgb(31, 117, 10);
-       margin-left: 40px;
-      text-align: center;  }
-p {
-    text-align: center;
-}
-
-img {
-    display: block; 
-    margin: 0 auto;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto; 
-  background-color: rgb(8, 119, 32);
-  padding: 5px;
-  gap: 5px; 
-}
-
-.container div {
-  background-color: #d1df92;
-  color:#063b2a;
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-}
-
-.grid-item-content {
-  display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
-  height: 100%;
-}
-
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Lucida Sans", sans-serif;
-  font-size: 17px;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    'header'
-    'menu'
-    'main'
-    'facts'
-    'footer';
-  background-color: rgb(240, 238, 207);
-  gap: 10px;  
-}
-
-
-
-
-.header {
-  grid-area: header;
-  background-color: rgb(71, 54, 7);
-  text-align: center;
-  color: #ffffff;
-}
-
-.header > h1 {
-  font-size: 40px;
-}
-
-.menu {
-  grid-area: menu;
-  }
-  
-.menu ul {
-  list-style-type: none;
   margin: 0;
-  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
 }
 
-.menu li {
-  padding: 8px;
-  margin-bottom: 7px;
-  background-color: #255a3b;
-  color: #ffffff;
-}
-
-.menu li:hover {
-  background-color: #2a491e;
-}
-  
-.content {
-  grid-area: main;
-}
-
-.content > h1 {
-  font-size: 30px;
-  margin-bottom: 7px;
-}
-
-.content > p {
-  margin-bottom: 7px;
-}
-
-.facts {
-  grid-area: facts;
-  border: 1px solid #545a4c;
-  background-color: beige;
-  padding: 10px;
-}
-
-.facts > h2 {
-  font-size: 20px;
-}
-
-.facts li {
-  margin-bottom: 5px;
-}
-
-.footer {
-  grid-area: footer;
-  background-color: #524648;
-  color: #ddddc8;
+.profile-header {
   text-align: center;
+  padding: 50px 20px;
+  background-color: #4CAF50;
+  color: white;
 }
 
-@media (min-width: 600px) {
-  .header {grid-area: 1 / span 6;}
-  .menu {grid-area: 2 / span 1;}
-  .content {grid-area: 2 / span 4;}
-  .facts {grid-area: 3 / span 6;}
-  .footer {grid-area: 4 / span 6;}
+.profile-header h1 {
+  margin: 0;
+  font-size: 2.5em;
 }
 
-@media (min-width: 768px) {
-  .header {grid-area: 1 / span 6;}
-  .menu {grid-area: 2 / span 1;}
-  .content {grid-area: 2 / span 4;}
-  .facts {grid-area: 2 / span 1;}
-  .footer {grid-area: 3 / span 6;}
+.profile-header p {
+  font-size: 1.2em;
+  margin: 10px 0 0;
+}
+
+section {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+section h2 {
+  color: #4CAF50;
+  border-bottom: 2px solid #4CAF50;
+  padding-bottom: 10px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.guestbook form {
+  display: flex;
+  flex-direction: column;
+}
+
+.guestbook input,
+.guestbook textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.guestbook button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.guestbook button:hover {
+  background-color: #45a049;
+}
+
+.comments .comment {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .profile-header h1 {
+    font-size: 2em;
+  }
+
+  section {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }
